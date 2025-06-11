@@ -1,6 +1,6 @@
 # 🛒 ShopShop
 
-Un shopping cart creado con React que te permite agregar y/o eliminar productos al carrito y visualizar así mismo, el costo total de los productos.
+A shopping cart built with React that allows you to add and/or remove products from the cart and view the total cost of the selected items.
 
 ## 📝 Technologies
 
