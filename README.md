@@ -1,12 +1,23 @@
-# React + Vite
+# 🛒 ShopShop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un shopping cart creado con React que te permite agregar y/o eliminar productos al carrito y visualizar así mismo, el costo total de los productos.
 
-Currently, two official plugins are available:
+## 📝 Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `React`
+- `CSS`
+- `useReducer`
+- `useContext`
+- `useId`
 
-## Expanding the ESLint configuration
+## 🧠 The Process
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The purpose of this shopping cart app was to deepen my understanding of React hooks, focusing on writing clean, organized, and reusable component-based code to make future updates easier.
+
+The first step was to display a list of available products retrieved from a JSON file. Then, I implemented filtering options based on price and category, allowing the user to view only the products they’re interested in.
+
+Finally, I added a shopping cart feature where users can add selected products. The cart displays the chosen items, their quantities, and the final total.
+
+## 🌆 Preview
+
+
