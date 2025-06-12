@@ -33,7 +33,8 @@ export default function Filter({filter, setFilter}){
                     id={inputId}
                     max="1000"
                     value={filter.initialPrice}
-                    onChange={handleChange}
+                    onChange={handleChange} 
+                    className="range"
                     />
                     <span>${filter.initialPrice}</span>
             </div>
@@ -44,6 +45,10 @@ export default function Filter({filter, setFilter}){
                 <option value="all">All</option>
                 <option value="groceries">Groceries</option>
                 <option value="beauty">Beauty</option>
+                <option value="fragrances">Fragrances</option>
+                <option value="furniture">Furniture</option>
+                
+
         </select>
         </div>   
         </section>        

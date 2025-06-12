@@ -2,9 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   margin-top: 30px;
 }
 
@@ -15,7 +15,8 @@
 
 .filters select {
   border: none;
-  border-radius: 5px;
-  width: 100px;
+  border-radius: 20px;
+  width: 120px;
   outline: none;
+  background-color: rgba(99, 115, 187, 0.781);
 }

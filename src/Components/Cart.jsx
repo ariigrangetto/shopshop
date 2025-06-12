@@ -1,8 +1,8 @@
 import React, { useId } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "./Cart.css"
+import { ShoppingCart } from "lucide-react";
 import useCartReducer from "../hooks/useCartreducer";
+import { CircleX } from "lucide-react";
 
 export default function Cart(){ 
     const cartId = useId();
@@ -13,7 +13,7 @@ export default function Cart(){
     return(
         <>
         <label htmlFor={cartId} className="cart-button">
-            <FontAwesomeIcon icon={faCartShopping} />
+            <ShoppingCart className="iconCart" size={25}/>
         </label>
         <input type="checkbox" hidden id={cartId} />
 
@@ -44,9 +44,9 @@ export default function Cart(){
                 })}
             </ul>
             ):(
-            <p>No tienes ningun producto en carrito</p>
+            <p className="notCart"><CircleX/>No tienes ningun producto en carrito</p>
         )}
-            <p>Total del carrito: ${total}</p>
+            <p>Total of cart: ${total}</p>
         </aside>
         </>
     )

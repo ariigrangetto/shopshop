@@ -20,7 +20,6 @@ function App() {
 
     <main>
       <CartProvider>
-        <Cart/>
         <Header/>
         <Filter filter={filter} setFilter={setFilter}/>
         <Products products={filterProducts}/>

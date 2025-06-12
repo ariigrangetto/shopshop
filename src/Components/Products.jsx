@@ -1,40 +1,45 @@
 import React from "react";
 import "./Products.css"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import useCartReducer from "../hooks/useCartreducer";
+import { MousePointerClick } from "lucide-react";
+import { Heart } from "lucide-react";
 
 export function ListOfProducts({products}){
     const {addToCart} = useCartReducer();
+
     return(
-        <div className="listOfProducts">
-            <ul className="listOfProducts">
+        <main className="products">
+            <ul >
+              
         {products.map((product) => (
             <li key={product.id}>
 
                 <div className="product">
-                    <img src={product.images} alt={product.title} />
+                    <img src={product.images[0]} alt={product.title} />
 
                 <div className="title">
                     <h3>{product.title}</h3>
                 </div>
               
               <div className="categorySection">
-                <p>{product.category}</p>
+                <p><Heart className="iconCategory" size={12}/>{product.category}</p>
               </div>
 
               <div className="price">
-                <p>Price: </p><strong>${product.price}</strong>
+                <p>Price: </p> <strong> ${product.price}</strong>
               </div>
               
-              <FontAwesomeIcon onClick={() => addToCart(product)} icon={faCartPlus} className="addCart"/>
+              <button onClick={() => addToCart(product)} className="addCart">
+                <p>Add to cart</p>
+                <MousePointerClick className="iconAdd" /> 
+              </button>
                 </div>
               
             </li>
           )
         )}
       </ul>
-        </div>
+        </main>
         
     )
 }
