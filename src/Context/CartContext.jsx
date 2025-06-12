@@ -4,7 +4,7 @@ import React from "react";
 
 export const CartContext = createContext();
 
-export function CartProvider({ children }){
+export default function CartProvider({ children }){
     const [state, dispatch] = useReducer(CartReducer, cartInitialState);
 
 

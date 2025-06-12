@@ -5,7 +5,7 @@ import Products from "./Components/Products";
 import useFilter from "./hooks/useFilter";
 import Filter from "./Components/Filter";
 import Header from "./Components/Header";
-import  CartProvider  from "./Context/cartContext";
+import CartProvider from "./Context/CartContext";
 
 function App() {
   const {filteredProducts, filter, setFilter} = useFilter();
