@@ -1,20 +1,10 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { FilterContext } from "../Context/FilterContext";
 
 export default function useFilter() {
-  const [filter, setFilter] = useState({
-    initialPrice: 1,
-    category: "all",
-  });
+  const context = useContext(FilterContext);
 
-  const filteredProducts = (products) => {
-    return products.filter((product) => {
-      const matchPrices = product.price >= filter.initialPrice;
-      const matchesCategory =
-        filter.category === "all" || product.category === filter.category;
+  if (!context) "useFilter must be in FilterContext";
 
-      return matchPrices && matchesCategory;
-    });
-  };
-
-  return { filteredProducts, filter, setFilter };
+  return context;
 }

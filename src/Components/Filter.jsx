@@ -1,8 +1,10 @@
 import React, { useId, } from "react"
 import "./Filter.css"
+import useFilter from "../hooks/useFilter";
 
 
-export default function Filter({filter, setFilter}){
+export default function Filter(){
+    const {filter, setFilter} = useFilter();
     const selectId = useId();
     const inputId = useId();
 

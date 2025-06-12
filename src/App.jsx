@@ -8,7 +8,7 @@ import Header from "./Components/Header";
 import CartProvider from "./Context/CartContext";
 
 function App() {
-  const {filteredProducts, filter, setFilter} = useFilter();
+  const {filteredProducts} = useFilter();
 
   const ListOfProducts = products.products;
 
@@ -20,7 +20,7 @@ function App() {
     <main>
       <CartProvider>
         <Header/>
-        <Filter filter={filter} setFilter={setFilter}/>
+        <Filter/>
         <Products products={filterProducts}/>
       </CartProvider>
       
