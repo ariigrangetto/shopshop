@@ -1,6 +1,6 @@
 import React from "react";
 import "./Products.css"
-import useCartReducer from "../hooks/useCartreducer";
+import useCartReducer from "../hooks/useCartReducer";
 import { MousePointerClick } from "lucide-react";
 import { Heart } from "lucide-react";
 
