@@ -4,9 +4,8 @@ import './App.css'
 import Products from "./Components/Products";
 import useFilter from "./hooks/useFilter";
 import Filter from "./Components/Filter";
-import Cart from "./Components/Cart";
 import Header from "./Components/Header";
-import { CartProvider } from "./Context/cartContext";
+import  CartProvider  from "./Context/cartContext";
 
 function App() {
   const {filteredProducts, filter, setFilter} = useFilter();
