@@ -6,33 +6,18 @@
   right: 0px;
   top: 0px;
   width: 200px;
-  color: black;
-}
-
-.cart-button {
-  align-items: center;
-  border-radius: 30px;
-  cursor: pointer;
-  display: flex;
-  height: 30px;
-  justify-content: center;
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  transition: all 0.3s ease;
-  width: 80px;
-  background-color: rgba(99, 115, 187, 0.781);
-  z-index: 9999;
-  color: white;
+  color: rgb(255, 255, 255);
+  overflow-y: auto;
 }
 
 .cart img {
-  aspect-ratio: 16/9;
-  width: 100%;
+  height: 100px;
 }
 
 .cart li {
   border-bottom: 1px solid #444;
+  justify-content: center;
+  margin: auto;
   padding-bottom: 16px;
 }
 
@@ -43,8 +28,21 @@
   align-items: center;
 }
 
-.cart footer button {
-  padding: 8px;
+.cart-button {
+  align-items: center;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  position: absolute;
+  right: 20px;
+  top: 8px;
+  transition: all 0.3s ease;
+  width: 80px;
+  background-color: rgba(99, 115, 187, 0.781);
+  z-index: 9999;
+  color: white;
 }
 
 .cart-button:hover {
@@ -54,7 +52,7 @@
 .cart-button ~ input:checked ~ .cart {
   height: 100%;
   display: block;
-  background-color: rgba(98, 114, 185, 0.952);
+  background-color: rgba(0, 0, 0, 0.986);
 }
 
 .notCart {
@@ -65,4 +63,54 @@
   display: flex;
   margin: auto;
   margin-top: 40px;
+}
+
+.cart ul {
+  list-style: none;
+  justify-content: center;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.add {
+  height: 20px;
+  margin-right: 5px;
+  width: 70px;
+  background-color: rgba(0, 0, 0, 0.87);
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.remove {
+  height: 20px;
+  justify-content: center;
+  width: 70px;
+  background-color: rgba(0, 0, 0, 0.87);
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.AddIcon {
+  align-items: center;
+}
+
+.RemoveIcon {
+  align-items: center;
+  text-align: center;
+}
+
+.total {
+  background-color: rgba(99, 115, 187, 0.781);
+  border-radius: 20px;
+  margin-bottom: 200px;
+}
+
+small {
+  font-size: 15px;
 }

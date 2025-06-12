@@ -3,6 +3,8 @@ import "./Cart.css"
 import { ShoppingCart } from "lucide-react";
 import useCartReducer from "../hooks/useCartreducer";
 import { CircleX } from "lucide-react";
+import { CirclePlus } from "lucide-react";
+
 
 export default function Cart(){ 
     const cartId = useId();
@@ -23,30 +25,34 @@ export default function Cart(){
                 {cart.map((product) => {
 
                     return(
+                        <>
+                    
                     <li key={product.id}>
                         <img src={product.images?.[0]} alt={product.title} />
                         <p>{product.title}</p>
-                        <strong>${product.price}</strong>
 
                         <footer>
+                            <strong>${product.price}</strong>
                             <small>Qty: {product.quantity}</small>
                         </footer>
-                         <p>cantidad a pagar: ${product.price * product.quantity}</p>
 
-                        <button onClick={() => addToCart(product)}>+</button>
-                        <button onClick={() => removeFromCart(product)}>remove</button>
+                         <p>Total: ${product.price * product.quantity}</p>
+
+                        <button className="add" onClick={() => addToCart(product)}><CirclePlus size={20}/></button>
+                        <button className="remove" onClick={() => removeFromCart(product)}><CircleX size={20}/></button>
 
                        
 
                     </li>
+                    </>
                     )
 
                 })}
             </ul>
             ):(
-            <p className="notCart"><CircleX/>No tienes ningun producto en carrito</p>
+            <p className="notCart"><CircleX/>You don't have any products in your cart.</p>
         )}
-            <p>Total of cart: ${total}</p>
+          <p className="total">Total of cart: ${total}</p>  
         </aside>
         </>
     )
