@@ -1,7 +1,7 @@
 import React, { useId } from "react";
 import "./Cart.css"
 import { ShoppingCart } from "lucide-react";
-import useCartReducer from "../hooks/useCartreducer";
+import useCartReducer from "../hooks/useCartReducer";
 import { CircleX } from "lucide-react";
 import { CirclePlus } from "lucide-react";
 
