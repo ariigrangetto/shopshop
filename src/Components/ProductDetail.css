@@ -1,0 +1,206 @@
+.details {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.details h1 {
+  font-size: 25px;
+}
+
+.details h2 {
+  font-size: 20px;
+  font-weight: 500;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  margin-top: -10px;
+}
+
+.details h3 {
+  font-weight: 500;
+}
+
+.details img {
+  height: 300px;
+  background-color: rgba(231, 231, 231, 0.664);
+  border-radius: 20px;
+}
+
+.details .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: rgba(182, 182, 182, 0.158);
+  width: 500px;
+  padding: 10px;
+  border-radius: 20px;
+}
+.tags {
+  display: flex;
+  margin: auto;
+}
+.firstTag {
+  background-color: black;
+  color: white;
+  width: 100px;
+  border-radius: 50px;
+  height: 25px;
+}
+
+.firstTag p {
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+.secondTag {
+  background-color: black;
+  color: white;
+  width: 100px;
+  border-radius: 50px;
+  height: 25px;
+}
+.secondTag p {
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+
+.price {
+  justify-content: center;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 20px;
+  color: black;
+  margin-top: 12px;
+  font-size: 25px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.price p {
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 22px;
+}
+
+.info .discount {
+  color: rgba(0, 0, 255, 0.699);
+  font-size: 15px;
+}
+
+.rating {
+  margin-top: -10px;
+}
+
+.infoShip {
+  display: flex;
+  margin: auto;
+  gap: 1rem;
+  margin-top: -16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.dimensions {
+  display: flex;
+  gap: 2rem;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.075);
+  border-radius: 20px;
+  height: 80px;
+}
+
+.dimensions strong {
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.dimensions p {
+  margin: auto;
+  margin-left: 10px;
+}
+
+.infoShip span {
+  background-color: black;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.commentsTitle {
+  justify-content: center;
+  margin: auto;
+}
+
+.commentsTitle h2 {
+  font-size: 25px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+}
+
+.messageIcon {
+  margin-right: 10px;
+}
+
+.commentsSection {
+  background-color: rgba(182, 182, 182, 0.158);
+  border-radius: 20px;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.comments {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.name {
+  font-size: 22px;
+}
+
+.email {
+  color: rgba(0, 0, 255, 0.712);
+  margin-top: -20px;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addCart {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  align-items: center;
+  height: 35px;
+  margin-top: 15px;
+  border-radius: 50px;
+  background-color: black;
+  border: none;
+  width: 150px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+}
