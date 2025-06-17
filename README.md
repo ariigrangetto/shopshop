@@ -9,16 +9,19 @@ A shopping cart built with React that allows you to add and/or remove products f
 - `useReducer`
 - `useContext`
 - `useId`
+- `useEffect`
 - `Custom Hooks`
+- `React Router`
 
 ## 🧠 The Process
 
 The purpose of this shopping cart app was to deepen my understanding of React hooks, focusing on writing clean, organized, and reusable component-based code to make future updates easier.
 
-The first step was to display a list of available products retrieved from a JSON file. Then, I implemented filtering options based on price and category, allowing the user to view only the products they’re interested in.
+The first step was to fetch and display a list of available products from an external API. I then implemented filtering options based on price and category, allowing users to narrow down the products according to their preferences.
 
-Finally, I added a shopping cart feature where users can add selected products. The cart displays the chosen items, their quantities, and the final total.
-Everything is stored persistently in localStorage.
+I also added the ability to view detailed information about each product, enhancing the user experience.
+
+Additionally, I implemented a shopping cart where users can add selected products. The cart displays the chosen items, their quantities, and the total cost. All data is stored persistently using localStorage.
 
 ## 🌆 Preview
 
