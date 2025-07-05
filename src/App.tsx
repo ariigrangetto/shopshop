@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import useService from "./hooks/useService";
 import useFilterContext from "./hooks/useFilterContext";
 import { type Product } from "./types.d";
+import ProductDetail from "./components/ProductDetail";
 
 function App() {
   const { filterProducts } = useFilterContext();
@@ -22,7 +23,7 @@ function App() {
               <>
                 <Header />
                 {isPending && <p>Cargando...</p>}
-                {/* <Filter /> */}
+                <Filter />
                 {/* {!isPending && !isError && (
                   <Products product={filteredProducts} />
                 )} */}
@@ -31,7 +32,7 @@ function App() {
           />
           <Route
             path='/product/:id'
-            // element={<ProductDetail products={filteredProducts} />}
+            element={<ProductDetail products={filteredProducts} />}
           />
         </Routes>
       </BrowserRouter>
