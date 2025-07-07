@@ -1,5 +1,5 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { ShoppingBasket } from "lucide-react";
-import React from "react";
 import Cart from "./Cart";
 
 export default function Header() {

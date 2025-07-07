@@ -1,6 +1,6 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { useId } from "react";
 import useFilterContext from "../hooks/useFilterContext";
-import React from "react";
 import type { Category } from "../types";
 
 export default function Filter() {

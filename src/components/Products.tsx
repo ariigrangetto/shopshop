@@ -1,6 +1,6 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Heart, MousePointerClick, Star } from "lucide-react";
 import useCartReducer from "../hooks/useCartReducer";
-import React from "react";
 import { Link } from "react-router-dom";
 import type { Product } from "../types.d";
 

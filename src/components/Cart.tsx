@@ -1,7 +1,7 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { useId } from "react";
 import useCartReducer from "../hooks/useCartReducer";
 import "./Cart.css";
-import React from "react";
 import { CirclePlus, CircleX, ShoppingCart } from "lucide-react";
 
 export default function Cart() {

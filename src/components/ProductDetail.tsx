@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/react-in-jsx-scope */
 import { useParams } from "react-router-dom";
 import useCartReducer from "../hooks/useCartReducer";
 import type { Product } from "../types.d";
@@ -43,7 +43,6 @@ export default function ProductDetail({ products }: Props) {
               </p>
             </div>
           </div>
-
           <div className='flex justify-center items-center'>
             <p className='flex items-center justify-center'>
               <Star className='mr-[2px]' size={15} />
@@ -51,16 +50,13 @@ export default function ProductDetail({ products }: Props) {
             </p>
           </div>
           <h3 className='font-medium'>{product?.description}</h3>
-
           <div className='justify-center m-auto flex item-center text-center h-[20px] text-black mt-[12px] text-[25px] font-sans'>
             <p className='items-center text-[12px] mb-[22px]'>US </p>
             <strong>${product?.price}</strong>
           </div>
-
           <p className='text-[rgba(0,0,255,0.699)] text-[15px] mt-[10px]'>
             Discount: {product?.discountPercentage}%
           </p>
-
           <div className='flex gap-[2rem] m-auto bg-[rgba(255,255,255,0.075)] rounded-[20px] h-[80px] mt-[-20px]'>
             <span className='bg-black w-[5px] h-[5px] rounded-[50%] m-auto'></span>
             <p className='flex items-center justify-center'>
@@ -72,7 +68,6 @@ export default function ProductDetail({ products }: Props) {
               {product?.shippingInformation}
             </p>
           </div>
-
           <div className='flex  m-auto bg-[rgba(255,255,255,0.075)] rounded-[20px] h-[80px] mt-[-40px]'>
             <p className='m-auto ml-[10px]'>
               <strong className='font-[300px] mr-[4px] text-[18px]'>
@@ -95,7 +90,7 @@ export default function ProductDetail({ products }: Props) {
           </div>
 
           <button
-            onClick={() => addToCart(product)}
+            onClick={() => addToCart(product!)}
             className='flex justify-center m-auto text-center items-center h-[35px]  rounded-[50px] bg-black border-0 w-[150px] text-[15px] text-white cursor-pointer mt-[-10px] mb-[10px]'
           >
             <p>Add to cart</p>

@@ -1,6 +1,6 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import React from "react";
 import Header from "./components/Header";
 import useService from "./hooks/useService";
 import useFilterContext from "./hooks/useFilterContext";
@@ -26,8 +26,9 @@ function App() {
               element={
                 <>
                   <Header />
-                  {isPending && <p>Cargando...</p>}
+
                   <Filter />
+                  {isPending && <p>Cargando...</p>}
                   {!isPending && !isError && (
                     <Products products={filteredProducts} />
                   )}
