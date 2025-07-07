@@ -6,6 +6,9 @@ import useService from "./hooks/useService";
 import useFilterContext from "./hooks/useFilterContext";
 import { type Product } from "./types.d";
 import ProductDetail from "./components/ProductDetail";
+import Filter from "./components/Filter";
+import Products from "./components/Products";
+import CartProvider from "./context/CartContext";
 
 function App() {
   const { filterProducts } = useFilterContext();
@@ -16,35 +19,28 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route
-            path='/'
-            element={
-              <>
-                <Header />
-                {isPending && <p>Cargando...</p>}
-                <Filter />
-                {/* {!isPending && !isError && (
-                  <Products product={filteredProducts} />
-                )} */}
-              </>
-            }
-          />
-          <Route
-            path='/product/:id'
-            element={<ProductDetail products={filteredProducts} />}
-          />
-        </Routes>
+        <CartProvider>
+          <Routes>
+            <Route
+              path='/'
+              element={
+                <>
+                  <Header />
+                  {isPending && <p>Cargando...</p>}
+                  <Filter />
+                  {!isPending && !isError && (
+                    <Products products={filteredProducts} />
+                  )}
+                </>
+              }
+            />
+            <Route
+              path='/product/:id'
+              element={<ProductDetail products={filteredProducts} />}
+            />
+          </Routes>
+        </CartProvider>
       </BrowserRouter>
-      <ul>
-        {filteredProducts.map((product) => {
-          return (
-            <li key={product.id}>
-              <p>name {product.title}</p>
-            </li>
-          );
-        })}
-      </ul>
     </>
   );
 }
