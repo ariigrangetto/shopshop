@@ -24,9 +24,11 @@ export default function Filter() {
 
   return (
     <>
-      <section className='flex items-center text-[18px] font-bold mb-[30px] mt-[30px] justify-between'>
+      <section className='flex items-center text-[17px]  mb-[30px] mt-[30px] justify-between'>
         <div className='flex gap-[1rem]'>
-          <label htmlFor={inputId}>Price: </label>
+          <label className='font-medium' htmlFor={inputId}>
+            Price:{" "}
+          </label>
           <input
             type='range'
             min='0'
@@ -39,8 +41,10 @@ export default function Filter() {
           <span>${filter.initialPrice}</span>
         </div>
 
-        <div>
-          <label htmlFor={selectId}>Category:</label>
+        <div className='flex gap-[1rem]'>
+          <label className='font-medium' htmlFor={selectId}>
+            Category:
+          </label>
           <select
             onChange={handleSelect}
             id={selectId}

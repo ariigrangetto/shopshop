@@ -8,7 +8,10 @@ export default function Cart() {
   const cartId = useId();
   const { cart, addToCart, removeFromCart } = useCartReducer();
 
-  const total = cart.reduce((acc, product) => acc + product.price, 0);
+  const total = cart.reduce(
+    (acc, product) => acc + product.price * product.quantity,
+    0
+  );
 
   return (
     <>
@@ -28,7 +31,7 @@ export default function Cart() {
                 <img
                   src={product.images?.[0]}
                   alt={product.title}
-                  className='h-[100px]'
+                  className='h-[100px] justify-center m-auto flex'
                 />
                 <p>{product.title}</p>
 
@@ -39,18 +42,20 @@ export default function Cart() {
 
                 <p>Total: ${product.price * product.quantity}</p>
 
-                <button
-                  className=' mr-[5px] w-[70px] bg-[rgba(0,0,0,0.87)] border-0 outline-0 rounded-[10px] h-[30px] cursor-pointer'
-                  onClick={() => addToCart(product)}
-                >
-                  <CirclePlus size={20} />
-                </button>
-                <button
-                  className='h-[30px] justify-center w-[70px] bg-[rgba(0,0,0,0.87)] border-0 outline-0 rounded-[10px] cursor-pointer'
-                  onClick={() => removeFromCart(product)}
-                >
-                  <CircleX size={20} />
-                </button>
+                <div className='justify-center m-auto flex mt-[10px]'>
+                  <button
+                    className=' mr-[5px] w-[50px] bg-[rgba(0,0,0,0.87)] border-0 outline-0 rounded-[10px] h-[30px] cursor-pointer flex justify-center m-auto'
+                    onClick={() => addToCart(product)}
+                  >
+                    <CirclePlus size={20} />
+                  </button>
+                  <button
+                    className='h-[30px]  w-[50px] bg-[rgba(0,0,0,0.87)] border-0 outline-0 rounded-[10px] cursor-pointer m-auto flex justify-center'
+                    onClick={() => removeFromCart(product)}
+                  >
+                    <CircleX size={20} />
+                  </button>
+                </div>
               </li>
             ))}
           </ul>
@@ -60,7 +65,7 @@ export default function Cart() {
             You don't have any products in your cart.
           </p>
         )}
-        <p className='bg-[rgba(99,115,187,0.781)] rounded-[20px] mb-[200px]'>
+        <p className='bg-[rgba(99,115,187,0.781)] rounded-[5px] mb-[200px'>
           Total of cart: ${total}
         </p>
       </aside>

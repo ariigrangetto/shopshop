@@ -28,10 +28,10 @@ export function ListOfProducts({ products }: Props) {
               </div>
 
               <div className='product-info'>
-                <h3 className='text-center flex items-center justify-center text-black'>
+                <h3 className='flex justify-center text-black'>
                   {product.title}
                 </h3>
-                <h4 className='mt-[-10px] font-medium text-black'>
+                <h4 className='mt-[2px] font-medium text-black'>
                   {product.brand}
                 </h4>
 
@@ -70,7 +70,7 @@ export function ListOfProducts({ products }: Props) {
 
             <button
               onClick={() => addToCart(product)}
-              className='flex justify-center m-auto text-center items-center h-[35px] mt-[15px] rounded-[50px] bg-black border-0 w-[150px] text-[15px] text-white cursor-pointer'
+              className='flex justify-center m-auto text-center items-center p-[5px] mt-[15px] rounded-[50px] bg-black border-0 w-[150px] text-[15px] text-white cursor-pointer'
             >
               <p>Add to cart</p>
               <MousePointerClick className='ml-[5px] text-white' />
