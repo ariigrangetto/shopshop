@@ -1,69 +1,29 @@
-# React + TypeScript + Vite
+# 🛒 ShopShop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A shopping cart built with React and Typescript that allows you to add and/or remove products from the cart and view the total cost of the selected items.
 
-Currently, two official plugins are available:
+## 📝 Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `React`
+- `Typescript`
+- `Tailwind`
+- `Zustand`
+- `useId`
+- `useQuery`
+- `Custom Hooks`
+- `React Router`
 
-## Expanding the ESLint configuration
+## 🧠 The Process
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The purpose of this shopping cart app was to deepen my understanding of React hooks, focusing on writing clean, organized, and reusable component-based code to make future updates easier.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The first step was to fetch and display a list of available products from an external API. I then implemented filtering options based on price and category, allowing users to narrow down the products according to their preferences.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+I also added the ability to view detailed information about each product, enhancing the user experience.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Additionally, I implemented a shopping cart where users can add selected products. The cart displays the chosen items, their quantities, and the total cost. All data is stored persistently using localStorage.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🌆 Preview
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+![409shots_so](https://github.com/user-attachments/assets/f0c15511-0d18-41f2-b835-ccf55545a35e)
