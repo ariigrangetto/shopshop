@@ -6,7 +6,7 @@ A shopping cart built with React and Typescript that allows you to add and/or re
 
 - `React`
 - `Typescript`
-- `Tailwind`
+- `TailwindCSS`
 - `Zustand`
 - `useId`
 - `useQuery`
