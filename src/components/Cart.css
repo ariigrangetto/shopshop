@@ -1,0 +1,38 @@
+.cart {
+  background: #000;
+  display: none;
+  padding: 32px;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  width: 200px;
+  color: rgb(255, 255, 255);
+  overflow-y: auto;
+}
+
+.cart-button {
+  align-items: center;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  position: absolute;
+  right: 20px;
+  top: 8px;
+  transition: all 0.3s ease;
+  width: 80px;
+  background-color: rgba(99, 115, 187, 0.781);
+  z-index: 9999;
+  color: white;
+}
+
+.cart-button:hover {
+  scale: 1.1;
+}
+
+.cart-button ~ input:checked ~ .cart {
+  height: 100%;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.986);
+}
