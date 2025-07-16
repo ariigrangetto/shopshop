@@ -2,11 +2,27 @@
 import { useId } from "react";
 import useFilterContext from "../hooks/useFilterContext";
 import type { Category } from "../types";
+import {
+  Box,
+  Input,
+  Button,
+  Slider,
+  Typography,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+} from "@mui/material";
+import ListDivider from "@mui/joy/ListDivider";
 
 export default function Filter() {
   const { filter, setFilter } = useFilterContext();
   const selectId = useId();
   const inputId = useId();
+
+  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setFilter((prevState) => ({
@@ -22,43 +38,118 @@ export default function Filter() {
     }));
   }
 
+  function handleChangeSearch(e: React.ChangeEvent<HTMLInputElement>) {
+    setFilter((prevState) => ({
+      ...prevState,
+      search: e.target.value,
+    }));
+  }
+
   return (
     <>
-      <section className='flex items-center text-[17px]  mb-[30px] mt-[30px] justify-between'>
-        <div className='flex gap-[1rem]'>
-          <label className='font-medium' htmlFor={inputId}>
-            Price:{" "}
-          </label>
-          <input
-            type='range'
-            min='0'
+      <Box
+        component='form'
+        onSubmit={handleSubmit}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          mt: 5,
+          gap: 3,
+          width: "100%",
+        }}
+      >
+        <Input
+          type='text'
+          value={filter.search}
+          onChange={handleChangeSearch}
+          placeholder='Eyeshadow Palette...'
+          endAdornment={
+            <Button
+              type='submit'
+              sx={{
+                borderRadius: "24px",
+                ml: 2,
+                width: 100,
+              }}
+            >
+              Search
+            </Button>
+          }
+          fullWidth
+          sx={{
+            bgcolor: "grey.200",
+            px: 2,
+            borderRadius: "24px",
+            "--Input-radius": `16px`,
+            "--Input-decoratorChildHeight": `28px`,
+          }}
+        />
+      </Box>
+
+      <ListDivider component='hr' sx={{ my: 3 }} />
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: 2,
+          mb: 4,
+          color: "white",
+          fontSize: 17,
+        }}
+      >
+        {/* Filtro de precio */}
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          <Typography fontWeight='medium' component='label' htmlFor={inputId}>
+            Price:
+          </Typography>
+          <Slider
+            size='small'
+            valueLabelDisplay='auto'
+            min={0}
+            max={1000}
             id={inputId}
-            max='1000'
             value={filter.initialPrice}
             onChange={handleChange}
-            className='range'
+            sx={{ width: 150 }}
           />
-          <span>${filter.initialPrice}</span>
-        </div>
+          <Typography>${filter.initialPrice}</Typography>
+        </Box>
 
-        <div className='flex gap-[1rem]'>
-          <label className='font-medium' htmlFor={selectId}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 2,
+          }}
+        >
+          <Typography fontWeight='medium' component='label' htmlFor={selectId}>
             Category:
-          </label>
-          <select
-            onChange={handleSelect}
+          </Typography>
+
+          <Select
+            labelId={selectId}
             id={selectId}
             value={filter.category}
-            className='border-0 rounded-[20px] w-[120px] outline-0 bg-[rgba(99,115,187,0.781)]'
+            onChange={handleSelect}
+            label='Category'
+            sx={{
+              borderRadius: "20px",
+              color: "white",
+              "& .MuiSelect-icon": { color: "white" },
+            }}
           >
-            <option value='all'>All</option>
-            <option value='groceries'>Groceries</option>
-            <option value='beauty'>Beauty</option>
-            <option value='fragrances'>Fragrances</option>
-            <option value='furniture'>Furniture</option>
-          </select>
-        </div>
-      </section>
+            <MenuItem value='all'>All</MenuItem>
+            <MenuItem value='groceries'>Groceries</MenuItem>
+            <MenuItem value='beauty'>Beauty</MenuItem>
+            <MenuItem value='fragrances'>Fragrances</MenuItem>
+            <MenuItem value='furniture'>Furniture</MenuItem>
+          </Select>
+        </Box>
+      </Box>
     </>
   );
 }

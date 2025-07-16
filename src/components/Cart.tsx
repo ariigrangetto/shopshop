@@ -1,74 +1,163 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { useId } from "react";
 import useCartReducer from "../hooks/useCartReducer";
 import "./Cart.css";
 import { CirclePlus, CircleX, ShoppingCart } from "lucide-react";
 
+import {
+  Drawer,
+  IconButton,
+  Typography,
+  Box,
+  Button,
+  Divider,
+} from "@mui/material";
+
+import { useState } from "react";
+
 export default function Cart() {
-  const cartId = useId();
   const { cart, addToCart, removeFromCart } = useCartReducer();
+  const [open, setOpen] = useState(false);
 
   const total = cart.reduce(
     (acc, product) => acc + product.price * product.quantity,
     0
   );
 
+  function toggleDrawer() {
+    setOpen(!open);
+  }
+
   return (
     <>
-      <label htmlFor={cartId} className='cart-button'>
-        <ShoppingCart className='iconCart' size={25} />
-      </label>
-      <input type='checkbox' hidden id={cartId} />
+      {/* Botón flotante del carrito */}
+      <IconButton
+        onClick={toggleDrawer}
+        sx={{
+          position: "fixed",
+          top: 16,
+          right: 16,
 
-      <aside className='cart'>
+          color: "#fff",
+          zIndex: 2000,
+        }}
+      >
+        <ShoppingCart />
+      </IconButton>
+
+      {/* Drawer del carrito */}
+      <Drawer
+        anchor='right'
+        open={open}
+        onClose={toggleDrawer}
+        PaperProps={{
+          sx: {
+            width: 320,
+            bgcolor: "hsl(220, 35%, 3%)",
+            color: "white",
+            padding: 2,
+          },
+        }}
+      >
+        <Typography variant='h6' gutterBottom>
+          Shopping Cart
+        </Typography>
+        <Divider sx={{ bgcolor: "#555", mb: 2 }} />
+
         {cart.length > 0 ? (
-          <ul className='list-none justify-center m-auto mt-[20px]'>
+          <Box component='ul' sx={{ listStyle: "none", p: 0, m: 0 }}>
             {cart.map((product) => (
-              <li
+              <Box
+                component='li'
                 key={product.id}
-                className='border-[1px,solid,#444] justify-center m-auto pb-[16px]'
+                sx={{
+                  mb: 3,
+                  border: "1px solid #444",
+                  borderRadius: 2,
+                  p: 2,
+                }}
               >
                 <img
                   src={product.images?.[0]}
                   alt={product.title}
-                  className='h-[100px] justify-center m-auto flex'
+                  style={{
+                    height: "100px",
+                    display: "block",
+                    margin: "0 auto 10px",
+                    objectFit: "contain",
+                  }}
                 />
-                <p>{product.title}</p>
+                <Typography align='center'>{product.title}</Typography>
 
-                <footer className='flex gap-2 justify-center items-center'>
-                  <strong>${product.price}</strong>
-                  <small className='text-[15px]'>Qty: {product.quantity}</small>
-                </footer>
+                <Box
+                  display='flex'
+                  justifyContent='center'
+                  alignItems='center'
+                  gap={1}
+                  mt={1}
+                >
+                  <Typography fontWeight='bold'>${product.price}</Typography>
+                  <Typography fontSize={14}>Qty: {product.quantity}</Typography>
+                </Box>
 
-                <p>Total: ${product.price * product.quantity}</p>
+                <Typography align='center' mt={1}>
+                  Total: ${product.price * product.quantity}
+                </Typography>
 
-                <div className='justify-center m-auto flex mt-[10px]'>
-                  <button
-                    className=' mr-[5px] w-[50px] bg-[rgba(0,0,0,0.87)] border-0 outline-0 rounded-[10px] h-[30px] cursor-pointer flex justify-center m-auto'
+                <Box display='flex' justifyContent='center' gap={1} mt={1}>
+                  <Button
                     onClick={() => addToCart(product)}
+                    variant='contained'
+                    size='small'
+                    sx={{
+                      minWidth: 0,
+
+                      borderRadius: "10px",
+                      width: 40,
+                      height: 30,
+                    }}
                   >
-                    <CirclePlus size={20} />
-                  </button>
-                  <button
-                    className='h-[30px]  w-[50px] bg-[rgba(0,0,0,0.87)] border-0 outline-0 rounded-[10px] cursor-pointer m-auto flex justify-center'
+                    <CirclePlus size={18} />
+                  </Button>
+                  <Button
                     onClick={() => removeFromCart(product)}
+                    variant='contained'
+                    size='small'
+                    sx={{
+                      minWidth: 0,
+                      borderRadius: "10px",
+                      width: 40,
+                      height: 30,
+                    }}
                   >
-                    <CircleX size={20} />
-                  </button>
-                </div>
-              </li>
+                    <CircleX size={18} />
+                  </Button>
+                </Box>
+              </Box>
             ))}
-          </ul>
+          </Box>
         ) : (
-          <p className='text-white text-[20px] text-center justify-center flex m-auto mt-[40px]'>
-            <CircleX />
-            You don't have any products in your cart.
-          </p>
+          <Box mt={5} textAlign='center'>
+            <CircleX size={40} />
+            <Typography variant='body1' mt={1}>
+              You don't have any products in your cart.
+            </Typography>
+          </Box>
         )}
-        <p className='bg-[rgba(99,115,187,0.781)] rounded-[5px] mb-[200px'>
-          Total of cart: ${total}
-        </p>
-      </aside>
+
+        <Divider sx={{ bgcolor: "#555", my: 2 }} />
+
+        <Typography
+          variant='subtitle1'
+          align='center'
+          sx={{
+            borderRadius: 1,
+            py: 1,
+            px: 2,
+          }}
+        >
+          Total of cart: ${total.toFixed(2)}
+        </Typography>
+      </Drawer>
     </>
   );
 }

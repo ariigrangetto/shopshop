@@ -10,6 +10,11 @@ import Filter from "./components/Filter";
 import Products from "./components/Products";
 import CartProvider from "./context/CartContext";
 
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+
 function App() {
   const { filterProducts } = useFilterContext();
   const { isPending, isError, products } = useService();
