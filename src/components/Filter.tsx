@@ -10,8 +10,7 @@ import {
   Typography,
   Select,
   MenuItem,
-  FormControl,
-  InputLabel,
+  type SelectChangeEvent,
 } from "@mui/material";
 import ListDivider from "@mui/joy/ListDivider";
 
@@ -24,14 +23,14 @@ export default function Filter() {
     e.preventDefault();
   };
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleChange(_event: Event, value: number | number[]) {
     setFilter((prevState) => ({
       ...prevState,
-      initialPrice: Number(e.target.value),
+      initialPrice: value as number,
     }));
   }
 
-  function handleSelect(e: React.ChangeEvent<HTMLSelectElement>) {
+  function handleSelect(e: SelectChangeEvent) {
     setFilter((prevState) => ({
       ...prevState,
       category: e.target.value as Category,

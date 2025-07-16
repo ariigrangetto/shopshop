@@ -11,11 +11,16 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { useParams } from "react-router-dom";
-import { MousePointerClick, Star, MessageCircle } from "lucide-react";
+import { MousePointerClick, Star } from "lucide-react";
 import Cart from "./Cart";
 import useCartReducer from "../hooks/useCartReducer";
+import type { Product } from "../types";
 
-export default function ProductDetail({ products }) {
+interface Props {
+  products: Product[];
+}
+
+export default function ProductDetail({ products }: Props) {
   const { id } = useParams();
   const { addToCart } = useCartReducer();
 
