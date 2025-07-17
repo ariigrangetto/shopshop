@@ -54,7 +54,6 @@ export default function Filter() {
           flexDirection: "column",
           alignItems: "center",
           mt: 5,
-          gap: 3,
           width: "100%",
         }}
       >
@@ -62,14 +61,19 @@ export default function Filter() {
           type='text'
           value={filter.search}
           onChange={handleChangeSearch}
+          disableUnderline
           placeholder='Eyeshadow Palette...'
           endAdornment={
             <Button
               type='submit'
               sx={{
-                borderRadius: "24px",
-                ml: 2,
-                width: 100,
+                textTransform: "none",
+                backgroundColor: "transparent",
+                boxShadow: "none",
+                ":hover": {
+                  backgroundColor: "transparent",
+                  boxShadow: "none",
+                },
               }}
             >
               Search
@@ -80,8 +84,6 @@ export default function Filter() {
             bgcolor: "grey.200",
             px: 2,
             borderRadius: "24px",
-            "--Input-radius": `16px`,
-            "--Input-decoratorChildHeight": `28px`,
           }}
         />
       </Box>
@@ -100,7 +102,6 @@ export default function Filter() {
           fontSize: 17,
         }}
       >
-        {/* Filtro de precio */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <Typography fontWeight='medium' component='label' htmlFor={inputId}>
             Price:

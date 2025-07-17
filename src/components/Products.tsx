@@ -28,6 +28,7 @@ export function ListOfProducts({ products }: Props) {
           flexDirection: "column",
           alignItems: "center",
           gap: { xs: 3, sm: 6 },
+          maxWidth: "lg",
         }}
       >
         <Box
@@ -36,9 +37,9 @@ export function ListOfProducts({ products }: Props) {
             textAlign: { sm: "left", md: "center" },
           }}
         ></Box>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} justifyContent='center'>
           {products.map((product) => (
-            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={product.id}>
+            <Grid item xs={{ xs: 15, sm: 6, md: 4 }} key={product.id}>
               <Link
                 to={`/product/${product.id}`}
                 style={{ textDecoration: "none", color: "inherit" }}
@@ -52,13 +53,27 @@ export function ListOfProducts({ products }: Props) {
                     color: "inherit",
                     p: 3,
                     height: "100%",
-                    borderColor: "white",
+                    maxWidth: 320,
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
                     backgroundColor: "hsl(218, 30%, 7%)",
                     borderRadius: "15px",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                    margin: "auto",
                   }}
                 >
                   <Box sx={{ opacity: "50%" }}>
-                    <img src={product.images[0]} alt={product.title} />
+                    <img
+                      src={product.images[0]}
+                      alt={product.title}
+                      style={{
+                        width: "100%",
+                        height: 180, // fijá altura
+                        objectFit: "contain",
+                        borderRadius: 8,
+                        display: "block", // para que no haya espacios extra
+                        margin: "auto",
+                      }}
+                    />
                   </Box>
                   <div>
                     <Typography
