@@ -31,9 +31,7 @@ export default function FilterProvider({ children }: FilterProviderProp) {
 
   const filterProducts = (products: Product[]): Product[] => {
     return products.filter((product) => {
-      const matchSearch = (product.title || product.brand!).includes(
-        filter.search
-      );
+      const matchSearch = product.title.includes(filter.search);
       const matchPrices = product.price >= filter.initialPrice;
       const matchCategory =
         product.category === filter.category || filter.category === "all";
