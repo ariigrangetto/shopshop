@@ -9,7 +9,7 @@ A shopping cart built with React and Typescript that allows you to add and/or re
 - `Tailwind`
 - `useReducer`
 - `useContext`
-
+- `Mui`
 - `useId`
 - `useQuery`
 - `Custom Hooks`
@@ -28,4 +28,5 @@ Additionally, I implemented a shopping cart where users can add selected product
 
 ## 🌆 Preview
 
-![409shots_so](https://github.com/user-attachments/assets/f0c15511-0d18-41f2-b835-ccf55545a35e)
+
+<img width="1920" height="1440" alt="shopshopCover" src="https://github.com/user-attachments/assets/da2a9f37-c59c-4507-9507-b67b99c00c71" />
