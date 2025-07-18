@@ -67,10 +67,10 @@ export function ListOfProducts({ products }: Props) {
                       alt={product.title}
                       style={{
                         width: "100%",
-                        height: 180, // fijá altura
+                        height: 180,
                         objectFit: "contain",
                         borderRadius: 8,
-                        display: "block", // para que no haya espacios extra
+                        display: "block",
                         margin: "auto",
                       }}
                     />
@@ -137,6 +137,7 @@ export function ListOfProducts({ products }: Props) {
                       onClick={() => addToCart(product)}
                       variant='contained'
                       color='primary'
+                      aria-label='add to cart icon'
                       sx={{
                         mt: 2,
                         border: "none",
