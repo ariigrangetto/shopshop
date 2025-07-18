@@ -24,7 +24,9 @@ export default function ProductDetail({ products }: Props) {
   const { id } = useParams();
   const { addToCart } = useCartReducer();
 
-  const product = products.find((p) => p.id === Number(id));
+  const productId = id ? Number(id) : null;
+
+  const product = productId ? products.find((p) => p.id === productId) : null;
 
   if (!product) return <Typography>Product not found</Typography>;
 
@@ -132,6 +134,7 @@ export default function ProductDetail({ products }: Props) {
               <Box textAlign='center' mt={3}>
                 <Button
                   variant='contained'
+                  aria-label='add to cart btn'
                   onClick={() => addToCart(product)}
                   endIcon={<MousePointerClick size={18} />}
                   sx={{ borderRadius: 50, px: 4 }}

@@ -133,6 +133,7 @@ export default function Filter() {
           <Select
             labelId={selectId}
             id={selectId}
+            aria-label='select category'
             value={filter.category}
             onChange={handleSelect}
             label='Category'

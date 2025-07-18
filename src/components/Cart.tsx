@@ -29,9 +29,9 @@ export default function Cart() {
 
   return (
     <>
-      {/* Botón flotante del carrito */}
       <IconButton
         onClick={toggleDrawer}
+        aria-label='open cart'
         sx={{
           position: "fixed",
           top: 16,
@@ -44,7 +44,6 @@ export default function Cart() {
         <ShoppingCart />
       </IconButton>
 
-      {/* Drawer del carrito */}
       <Drawer
         anchor='right'
         open={open}
