@@ -8,9 +8,11 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
-
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
+import useFilterContext from "../hooks/useFilterContext";
+import useService from "../hooks/useService";
+import { useMemo } from "react";
 
 interface Props {
   products: Product[];
@@ -39,7 +41,7 @@ export function ListOfProducts({ products }: Props) {
         ></Box>
         <Grid container spacing={2} justifyContent='center'>
           {products.map((product) => (
-            <Grid item xs={{ xs: 15, sm: 6, md: 4 }} key={product.id}>
+            <Grid key={product.id}>
               <Link
                 to={`/product/${product.id}`}
                 style={{ textDecoration: "none", color: "inherit" }}
@@ -67,7 +69,7 @@ export function ListOfProducts({ products }: Props) {
                       alt={product.title}
                       style={{
                         width: "100%",
-                        height: 180,
+                        height: 150,
                         objectFit: "contain",
                         borderRadius: 8,
                         display: "block",
@@ -167,10 +169,18 @@ export function WithoutResult() {
   return <p>No se encontraron resultados</p>;
 }
 
-export default function Products({ products }: Props) {
-  const hasProduct = products.length > 0;
+export default function Products() {
+  const { filterProducts, filter } = useFilterContext();
+  const { products } = useService();
+
+  const filteredProducts: Product[] = useMemo(
+    () => filterProducts(products),
+    [products, filter]
+  );
+
+  const hasProduct = filteredProducts.length > 0;
   return hasProduct ? (
-    <ListOfProducts products={products} />
+    <ListOfProducts products={filteredProducts} />
   ) : (
     <WithoutResult />
   );

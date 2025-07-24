@@ -1,17 +1,16 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { useId } from "react";
+import { useId, type ChangeEvent } from "react";
 import useFilterContext from "../hooks/useFilterContext";
 import type { Category } from "../types";
-import {
-  Box,
-  Input,
-  Button,
-  Slider,
-  Typography,
-  Select,
-  MenuItem,
-  type SelectChangeEvent,
-} from "@mui/material";
+import MenuItem from "@mui/material/MenuItem";
+import Button from "@mui/material/Button";
+import Input from "@mui/material/Input";
+import Box from "@mui/material/Box";
+
+import Slider from "@mui/material/Slider";
+import Typography from "@mui/material/Typography";
+import Select from "@mui/material/Select";
+
 import ListDivider from "@mui/joy/ListDivider";
 
 export default function Filter() {
@@ -30,7 +29,7 @@ export default function Filter() {
     }));
   }
 
-  function handleSelect(e: SelectChangeEvent) {
+  function handleSelect(e: ChangeEvent<HTMLSelectElement>) {
     setFilter((prevState) => ({
       ...prevState,
       category: e.target.value as Category,
@@ -59,6 +58,7 @@ export default function Filter() {
       >
         <Input
           type='text'
+          aria-label='product search input'
           value={filter.search}
           onChange={handleChangeSearch}
           disableUnderline
@@ -110,6 +110,7 @@ export default function Filter() {
             size='small'
             valueLabelDisplay='auto'
             min={0}
+            aria-label='price range'
             max={1000}
             id={inputId}
             value={filter.initialPrice}
@@ -120,6 +121,7 @@ export default function Filter() {
         </Box>
 
         <Box
+          aria-label='select options'
           sx={{
             display: "flex",
             alignItems: "center",
@@ -143,11 +145,21 @@ export default function Filter() {
               "& .MuiSelect-icon": { color: "white" },
             }}
           >
-            <MenuItem value='all'>All</MenuItem>
-            <MenuItem value='groceries'>Groceries</MenuItem>
-            <MenuItem value='beauty'>Beauty</MenuItem>
-            <MenuItem value='fragrances'>Fragrances</MenuItem>
-            <MenuItem value='furniture'>Furniture</MenuItem>
+            <MenuItem aria-label='All option' value='all'>
+              All
+            </MenuItem>
+            <MenuItem aria-label='Groceries option' value='groceries'>
+              Groceries
+            </MenuItem>
+            <MenuItem aria-label='Beauty option' value='beauty'>
+              Beauty
+            </MenuItem>
+            <MenuItem aria-label='Fragrances option' value='fragrances'>
+              Fragrances
+            </MenuItem>
+            <MenuItem aria-label='Furniture option' value='furniture'>
+              Furniture
+            </MenuItem>
           </Select>
         </Box>
       </Box>

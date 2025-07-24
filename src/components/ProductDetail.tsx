@@ -1,32 +1,32 @@
 /* eslint-disable react/react-in-jsx-scope */
-import {
-  Box,
-  Button,
-  Container,
-  Typography,
-  Chip,
-  Card,
-  Stack,
-  Paper,
-} from "@mui/material";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Chip from "@mui/material/Chip";
+import Card from "@mui/material/Card";
+import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import { useParams } from "react-router-dom";
 import { MousePointerClick, Star } from "lucide-react";
 import Cart from "./Cart";
 import useCartReducer from "../hooks/useCartReducer";
-import type { Product } from "../types";
+import useFilterContext from "../hooks/useFilterContext";
+import useService from "../hooks/useService";
 
-interface Props {
-  products: Product[];
-}
+export default function ProductDetail() {
+  const { filterProducts } = useFilterContext();
+  const { products } = useService();
 
-export default function ProductDetail({ products }: Props) {
+  const filtered = filterProducts(products);
+
   const { id } = useParams();
   const { addToCart } = useCartReducer();
 
   const productId = id ? Number(id) : null;
 
-  const product = productId ? products.find((p) => p.id === productId) : null;
+  const product = productId ? filtered.find((p) => p.id === productId) : null;
 
   if (!product) return <Typography>Product not found</Typography>;
 
@@ -38,6 +38,7 @@ export default function ProductDetail({ products }: Props) {
           <Grid item xs={12} md={5}>
             <Box
               component='img'
+              loading='lazy'
               src={product.images[0]}
               alt={product.title}
               sx={{
@@ -136,7 +137,12 @@ export default function ProductDetail({ products }: Props) {
                   variant='contained'
                   aria-label='add to cart btn'
                   onClick={() => addToCart(product)}
-                  endIcon={<MousePointerClick size={18} />}
+                  endIcon={
+                    <MousePointerClick
+                      aria-label='mouse pointer icon'
+                      size={18}
+                    />
+                  }
                   sx={{ borderRadius: 50, px: 4 }}
                 >
                   Add to cart
@@ -168,7 +174,12 @@ export default function ProductDetail({ products }: Props) {
                   }}
                 >
                   <Typography display='flex' alignItems='center' gutterBottom>
-                    <Star size={15} style={{ marginRight: 4 }} /> Rating:
+                    <Star
+                      aria-label='star icon'
+                      size={15}
+                      style={{ marginRight: 4 }}
+                    />{" "}
+                    Rating:
                     {review.rating}
                   </Typography>
                   <Typography variant='h6'>{review.reviewerName}</Typography>
